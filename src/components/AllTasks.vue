@@ -18,7 +18,7 @@ const tasks = ref([
 
 const addTask = (name, disc) => {
 	if (name && disc) {
-		tasks.value.push({id: tasks.value.at(-1).id + 1,nameTask: name, discriptionTask: disc})
+		tasks.value.push({id: tasks.value.at(-1)?.id + 1 || 1,nameTask: name, discriptionTask: disc})
 
 	}
 

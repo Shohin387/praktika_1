@@ -20,9 +20,18 @@ const props = defineProps({
 <template>
 	<h1>Создание задач</h1>
 	<form @submit.prevent action="">
-		<input @input="changeName" :value="nameTask" placeholder="Название задачи" class="info" type="text"><br>
-		<input @input="changeDisc" placeholder="Описание задачи" class="info" type="text"><br>
-		<button @click="() => addTask(nameTask, discTask)" type="button" class='createBtn'>Создать</button>
+		<v-text-field v-model="nameTask" label="Название задачи">
+		</v-text-field>
+		<v-text-field v-model="discTask" label="Описание задачи">
+		</v-text-field>
+		<v-btn v-if="!nameTask || !discTask" class='createBtn' loading>
+			
+		</v-btn>
+		<v-btn type="reset" v-if="nameTask  && discTask" @click="() => {
+			addTask(nameTask, discTask)
+			nameTask = ''
+			discTask = ''
+		}" class='createBtn'>Создать</v-btn>
 	</form>
 </template>
 
@@ -44,14 +53,10 @@ const props = defineProps({
 }
 
 .createBtn {
-	background-color: white;
-	color: rgb(100, 200, 167);
-	border: 2px solid rgb(2, 219, 143);
 	font-size: 18px;
-	padding: 10px;
 	cursor: pointer;
 	display: flex;
 	justify-self: right;
-
+	width: 100px;
 }
 </style>
