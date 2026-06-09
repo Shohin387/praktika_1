@@ -8,6 +8,7 @@
         "@mdi/font": "^7.4.47",
         "vue": "^3.5.34",
         "vue-router": "4",
+        "vuex": "4",
       },
       "devDependencies": {
         "@types/node": "^24.12.3",
@@ -197,5 +198,7 @@
     "vue-tsc": ["vue-tsc@3.3.3", "", { "dependencies": { "@volar/typescript": "2.4.28", "@vue/language-core": "3.3.3" }, "peerDependencies": { "typescript": ">=5.0.0" }, "bin": { "vue-tsc": "bin/vue-tsc.js" } }, "sha512-SWUEG7YRUeDJHT7Xsuhf02elYX2gxPzzAII7OxDAh4KNOr4QHQ0Lls0YfnaO5GNd560CwVa2HTfdqmA5MqvRqQ=="],
 
     "vuetify": ["vuetify@4.1.1", "", { "peerDependencies": { "typescript": ">=4.7", "vite-plugin-vuetify": ">=2.1.0", "vue": "^3.5.0", "webpack-plugin-vuetify": ">=3.1.0" }, "optionalPeers": ["typescript", "vite-plugin-vuetify", "webpack-plugin-vuetify"] }, "sha512-m75ZkDIBwstDhID/zPtQmh9m601G/C4wnvCmlA6hgvhD7EOwR9I4DClpxPQiNTd1toKWHCr3kD2XJqU1fh0tYA=="],
+
+    "vuex": ["vuex@4.0.2", "", { "dependencies": { "@vue/devtools-api": "^6.0.0-beta.11" }, "peerDependencies": { "vue": "^3.0.2" } }, "sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q=="],
   }
 }

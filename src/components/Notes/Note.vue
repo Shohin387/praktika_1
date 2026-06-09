@@ -15,7 +15,7 @@ function truncateText(text, maxLength) {
 		</div>
 		
 		<h2>Name Note</h2>
-		<span>{{ truncateText('Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aliquid odit quos vero consequuntur fuga pariatur commodi dolorum nostrum a porro, saepe odio. Id provident dolorum tenetur? Ex, molestias ad.', 60) }}</span>
+		<span class="info">{{ truncateText('Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aliquid odit quos vero consequuntur fuga pariatur commodi dolorum nostrum a porro, saepe odio. Id provident dolorum tenetur? Ex, molestias ad.', 60) }}</span>
 		
 		<v-icon-btn icon="mdi-delete-outline" icon-color="red" color="black" class="btn">
 			
@@ -46,8 +46,14 @@ function truncateText(text, maxLength) {
 }
 
 .btn {
+	position: absolute;
 	border: 2px solid red;
+	margin-top:0px ;
 	margin-left: 30px;
-	margin-top:-20px ;
+}
+
+.info {
+	display: inline-block;
+	width: 220px;
 }
 </style>

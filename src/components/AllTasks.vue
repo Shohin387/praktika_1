@@ -2,37 +2,23 @@
 import { ref } from 'vue';
 import Task from './Task.vue';
 import Form from './Form.vue';
-import Note from './Notes/Note.vue';
-import List from './Lists/List.vue';
+import { useStore } from 'vuex';
 
-const tasks = ref([
-	{
-		id: 1,
-		nameTask: 'some Task', 
-		discriptionTask: 'Discription TaskDiscription TaskDiscription TaskDiscription TaskDiscription TaskDiscription TaskDiscription Task',
-	},
-	{
-		id: 2,
-		nameTask: 'some Task', 
-		discriptionTask: 'Discription Task',
-	}
-])
+const store = useStore()
+store.state.tasks
 
 const addTask = (name, disc) => {
 	if (name && disc) {
-		tasks.value.push({id: tasks.value.at(-1)?.id + 1 || 1,nameTask: name, discriptionTask: disc})
+		store.commit('ADD_TASK', {id: store.state.tasks.at(-1)?.id + 1 || 1,nameTask: name, discriptionTask: disc})
 
 	}
-
-	console.log(tasks.value)
+	
+	console.log(store.state.tasks.value)
 }
 
 const delTask = (id) => {
-	tasks.value = tasks.value.filter(el => {
-		console.log(el + '     ' + id)
-		return el.id != id
-	}) 
-	console.log(tasks.value)
+	store.commit('DEL_TASK', id)
+	console.log(store.state.tasks)
 }
 
 
@@ -42,8 +28,8 @@ const delTask = (id) => {
 	<div class="main">
 		<Form :addTask="addTask"/>
 		<ul class="ul">
-			<li class="taskBlock" v-for="i in tasks.length">
-				<Task :id="tasks[i-1].id" :delTask="delTask" :nameTask="tasks[i-1].nameTask" :disciptionTask="tasks[i-1].discriptionTask" />
+			<li class="taskBlock" v-for="i in store.state.tasks.length">
+				<Task :id="store.state.tasks[i-1].id" :delTask="delTask" :nameTask="store.state.tasks[i-1].nameTask" :disciptionTask="store.state.tasks[i-1].discriptionTask" />
 			</li>
 		</ul>
 
