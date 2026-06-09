@@ -1,11 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-import Task from './Task.vue';
-import Form from './Form.vue';
-import Note from './Notes/Note.vue';
-import List from './Lists/List.vue';
+import Form from '../Form.vue';
+import List from './List.vue';
 
-const tasks = ref([
+const lists = ref([
 	{
 		id: 1,
 		nameTask: 'some Task', 
@@ -20,19 +18,19 @@ const tasks = ref([
 
 const addTask = (name, disc) => {
 	if (name && disc) {
-		tasks.value.push({id: tasks.value.at(-1)?.id + 1 || 1,nameTask: name, discriptionTask: disc})
+		lists.value.push({id: lists.value.at(-1)?.id + 1 || 1,nameTask: name, discriptionTask: disc})
 
 	}
 
-	console.log(tasks.value)
+	console.log(lists.value)
 }
 
 const delTask = (id) => {
-	tasks.value = tasks.value.filter(el => {
+	lists.value = lists.value.filter(el => {
 		console.log(el + '     ' + id)
 		return el.id != id
 	}) 
-	console.log(tasks.value)
+	console.log(lists.value)
 }
 
 
@@ -42,12 +40,14 @@ const delTask = (id) => {
 	<div class="main">
 		<Form :addTask="addTask"/>
 		<ul class="ul">
-			<li class="taskBlock" v-for="i in tasks.length">
-				<Task :id="tasks[i-1].id" :delTask="delTask" :nameTask="tasks[i-1].nameTask" :disciptionTask="tasks[i-1].discriptionTask" />
+			<li class="taskBlock" v-for="i in lists.length">
+				<v-checkbox baseColor="rgb(2, 219, 143)" color="rgb(2, 219, 143)" label="">
+					
+				</v-checkbox>
+				<List :id="lists[i-1].id" :delTask="delTask" :nameTask="lists[i-1].nameTask" :disciptionTask="lists[i-1].discriptionTask" />
 			</li>
 		</ul>
 
-		<List />
 	</div>
 </template>
 
@@ -60,7 +60,7 @@ const delTask = (id) => {
 .taskBlock {
 	border-radius: 7px;
 	display: grid;
-	grid-template-columns: auto 80px;
+	grid-template-columns: 40px auto ;
 	width: 100%;
 	box-sizing: border-box;
 	gap: 20px;

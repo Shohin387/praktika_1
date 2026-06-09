@@ -20,9 +20,9 @@ const props = defineProps({
 <template>
 	<h1>Создание задач</h1>
 	<form @submit.prevent action="">
-		<v-text-field v-model="nameTask" label="Название задачи">
+		<v-text-field base-color="rgb(2, 219, 143)" color="rgb(2, 219, 143)" v-model="nameTask" label="Название задачи">
 		</v-text-field>
-		<v-text-field v-model="discTask" label="Описание задачи">
+		<v-text-field base-color="rgb(2, 219, 143)" color="rgb(2, 219, 143)" v-model="discTask" label="Описание задачи">
 		</v-text-field>
 		<v-btn v-if="!nameTask || !discTask" class='createBtn' loading>
 			

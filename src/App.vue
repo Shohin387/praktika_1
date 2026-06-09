@@ -1,7 +1,11 @@
 <script setup >
-import AllTasks from "./components/AllTasks.vue";
+import SideBar from './components/SideBar.vue';
+
 </script>
 
 <template>
-  <AllTasks />
+  <main>
+    <SideBar />
+    <router-view />
+  </main>
 </template>
